@@ -1,0 +1,181 @@
+:root {
+    --primary-color: #1E88E5;
+    --secondary-color: #1976D2;
+    --background-color: #f5f7fa;
+    --card-bg: rgba(255, 255, 255, 0.9);
+    --text-color: #333;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.3s;
+    --overlay-bg: rgba(0, 0, 0, 0.75);
+  }
+  
+  body {
+    background: url("https://png.pngtree.com/thumb_back/fw800/background/20230827/pngtree-photo-of-realistic-sky-and-clouds-image_13246465.jpg") no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Search panel styling */
+  .search-container {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 500px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+  }
+  
+  /* Full-screen overlay for weather info */
+  .weather-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--overlay-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  /* Big, centered weather info window */
+  .weather-window {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    padding: 2rem;
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    overflow: hidden;
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+  
+  /* Header for weather info */
+  .weather-window h2 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: var(--primary-color);
+  }
+  
+  /* Organized info rows for temperature, humidity, latitude, longitude */
+  .weather-info-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border-bottom: 1px solid #eee;
+    font-size: 1rem;
+  }
+  
+  .weather-info-row:last-child {
+    border-bottom: none;
+  }
+  
+  /* Container for extra weather details */
+  .weather-extra {
+    margin-top: 1.5rem;
+    text-align: left;
+    font-size: 0.9rem;
+    color: var(--text-color);
+  }
+  
+  /* Dynamic backgrounds based on weather condition */
+  .weather-window.weather-clear {
+    background: linear-gradient(135deg, #ffe259, #ffa751);
+  }
+  
+  .weather-window.weather-clouds {
+    background: linear-gradient(135deg, #bdc3c7, #2c3e50);
+  }
+  
+  .weather-window.weather-rain {
+    background: linear-gradient(135deg, #89f7fe, #66a6ff);
+  }
+  
+  .weather-window.weather-snow {
+    background: linear-gradient(135deg, #e0eafc, #cfdef3);
+  }
+  
+  /* Weather icon inside the window */
+  .weather-window .weather-icon {
+    width: 100px;
+    height: 100px;
+    animation: float 3s ease-in-out infinite;
+    margin: 1rem auto;
+  }
+  
+  /* Clear weather: pulsing sun effect */
+  .weather-window.weather-clear::after {
+    content: "";
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, rgba(255,255,204,1) 0%, rgba(255,204,0,0) 70%);
+    border-radius: 50%;
+    animation: sunPulse 4s infinite ease-in-out;
+    pointer-events: none;
+  }
+  
+  /* Cloudy weather: sliding cloud effect inside the window */
+  .weather-window.weather-clouds::after {
+    content: "";
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 150%;
+    height: 40px;
+    background: repeating-linear-gradient(90deg, rgba(255,255,255,0.5), rgba(255,255,255,0.5) 20px, transparent 20px, transparent 40px);
+    animation: slideClouds 10s linear infinite;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  
+  /* Rainy weather: falling raindrops effect */
+  .weather-window.weather-rain::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Using a live texture URL for raindrops */
+    background: url('https://www.transparenttextures.com/patterns/raindrops.png') repeat;
+    animation: rainFall 1s linear infinite;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  
+  /* Animated effects */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  
+  @keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+  }
+  
+  @keyframes sunPulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.8; }
+  }
+  
+  @keyframes slideClouds {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  
+  @keyframes rainFall {
+    from { background-position: 0 0; }
+    to { background-position: 0 100%; }
+  }
