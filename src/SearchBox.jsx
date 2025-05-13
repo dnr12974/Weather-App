@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import "./SearchBox.css"
+import "./SearchBox.css"                    
 
 const SearchBox = () => {
   const API_URL = "https://api.openweathermap.org/data/2.5/weather";
