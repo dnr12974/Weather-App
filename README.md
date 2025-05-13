@@ -7,7 +7,7 @@ An immersive and dynamic weather application built with React, Vite, and Materia
 ## ✨ Features
 
 - **Dynamic Weather Search:**  
-  🔍 Enter any city name to view live weather details including temperature, humidity, latitude, longitude, and more.
+  🔍 Enter any city name to view live weather details including temperature, humidity, latitude, longitude, and more along with classy UI and animation.
 
 - **Animated User Interface:**  
   🎨 The weather info screen adapts its style based on the current condition:
