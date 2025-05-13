@@ -1,15 +1,10 @@
 import './App.css'
 import SearchBox from './SearchBox'
-
 function App() {
-
-
   return (
   <div>
     <SearchBox />
-  </div>
-     
+  </div>   
   )
 }
-
 export default App
